@@ -1,0 +1,17 @@
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-xmark {
+    opacity: 0;
+}
+
+li:hover .fa-xmark {
+    opacity: 1;
+}
+
+li:hover {
+    background-color: #d6d6d6;
+}

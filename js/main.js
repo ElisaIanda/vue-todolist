@@ -30,6 +30,9 @@ const app = Vue.createApp({
                 }
             ],
 
+            // Per incrementare automaticamente id
+            idTask: "05",
+
             newTask: {
                 id: "",
                 text: "",
@@ -40,10 +43,19 @@ const app = Vue.createApp({
     methods: {
         addNewTask() {
             // Clono l'arrey per il problema reattività
-            const newTaskClone = {...this.newTask}
+            const newTaskClone = {...this.newTask, id: ++this.idTask}
 
             this.listTask.push(newTaskClone)
             console.log(newTaskClone)
+        },
+
+        removeItem(itemId){
+            // passo come argomento id
+            console.log(itemId)
+
+            // Stesso meccanismo di fare un ciclo
+            const deleteIndex = this.listTask.findIndex((singleTask) => singleTask.id === itemId)
+            this.listTask.splice(deleteIndex,1)
         }
     },
 });
