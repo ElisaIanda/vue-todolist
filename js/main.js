@@ -6,27 +6,27 @@ const app = Vue.createApp({
                 {
                     id: "01",
                     text: "Brainstorming",
-                    done: "true",
+                    done: true,
                 },
                 {
                     id: "02",
                     text: "Creazione grafiche",
-                    done: "false",
+                    done: false,
                 },
                 {
                     id: "03",
                     text: "Architettura sito web",
-                    done: "false",
+                    done: false,
                 },
                 {
                     id: "04",
                     text: "Analizzare dati",
-                    done: "true",
+                    done: true,
                 },
                 {
                     id: "05",
                     text: "Inserire immagini",
-                    done: "true",
+                    done: true,
                 }
             ],
 
@@ -38,6 +38,8 @@ const app = Vue.createApp({
                 text: "",
                 done: "",
             },
+
+            textUnderline:""
         };
     },
     methods: {
@@ -56,7 +58,15 @@ const app = Vue.createApp({
             // Stesso meccanismo di fare un ciclo
             const deleteIndex = this.listTask.findIndex((singleTask) => singleTask.id === itemId)
             this.listTask.splice(deleteIndex,1)
-        }
+        },
+
+        lineTask(singleTask){
+            if (singleTask.done === true) {
+                singleTask.done = false
+            }else{
+                singleTask.done = true
+            }
+        },
     },
 });
 

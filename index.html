@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
@@ -25,18 +26,22 @@
         <main>
             <div class="container">
                 <div class=" input-group my-3">
-                    <input type="text" placeholder="Crea un nuovo task" v-model="newTask.text">
+                    <input type="text" placeholder="Crea un nuovo task" v-model="newTask.text"
+                        @keyup.enter="addNewTask">
                     <button class="btn btn-primary" @click="addNewTask">Aggiungi</button>
                 </div>
                 <div>
                     <ul class="list-group">
-                        <li class="list-group-item"
-                        v-for="singleTask in listTask ">
-                        {{singleTask.text}}
-                        <button class="btn btn-link text-danger text-decoration-none"
-                        @click="removeItem(singleTask.id)">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
+                        <li class="list-group-item" v-for="(singleTask, i) in listTask ">
+                            <div @click="lineTask(singleTask)">
+                                <span :class="(singleTask.done === true ? 'text-decoration-line-through' : '')">
+                                    {{singleTask.text}}
+                                </span>
+                            </div>
+                            <button class="btn btn-link text-danger text-decoration-none"
+                                @click="removeItem(singleTask.id)">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                         </li>
                     </ul>
 
