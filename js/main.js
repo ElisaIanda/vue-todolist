@@ -36,7 +36,7 @@ const app = Vue.createApp({
             newTask: {
                 id: "",
                 text: "",
-                done: "",
+                done: false,
             },
 
             textUnderline:""
