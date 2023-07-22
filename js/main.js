@@ -42,6 +42,7 @@ const app = Vue.createApp({
                 id: "",
                 text: "",
                 done: false,
+                checked: false,
             },
 
             textUnderline:""
