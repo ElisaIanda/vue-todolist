@@ -15,3 +15,25 @@ li:hover .fa-xmark {
 li:hover {
     background-color: #d6d6d6;
 }
+
+.input-text{
+    width: 40%;
+    border: 1px solid black;
+}
+
+.btn-add{
+    border-radius: inherit;
+}
+
+.img-container{
+    width: 40%;
+}
+
+.bg-image{
+    background-image: url(https://www.edpanswer.it/wp-content/uploads/prova-sfondo-scaled.jpg);
+    background-repeat: round;
+}
+
+main{
+    height: calc(100vh - 152px);
+}

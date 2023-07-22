@@ -7,26 +7,31 @@ const app = Vue.createApp({
                     id: "01",
                     text: "Brainstorming",
                     done: true,
+                    checked: true,
                 },
                 {
                     id: "02",
                     text: "Creazione grafiche",
                     done: false,
+                    checked: false,
                 },
                 {
                     id: "03",
                     text: "Architettura sito web",
                     done: false,
+                    checked: false,
                 },
                 {
                     id: "04",
                     text: "Analizzare dati",
                     done: true,
+                    checked: true,
                 },
                 {
                     id: "05",
                     text: "Inserire immagini",
                     done: true,
+                    checked: true,
                 }
             ],
 
@@ -44,7 +49,7 @@ const app = Vue.createApp({
     },
     methods: {
         addNewTask() {
-            // Clono l'arrey per il problema reattività
+            // Clono l'array per il problema reattività
             const newTaskClone = {...this.newTask, id: ++this.idTask}
 
             this.listTask.push(newTaskClone)
@@ -63,8 +68,11 @@ const app = Vue.createApp({
         lineTask(singleTask){
             if (singleTask.done === true) {
                 singleTask.done = false
+                singleTask.checked = false
             }else{
                 singleTask.done = true
+                singleTask.checked = true
+
             }
         },
     },
